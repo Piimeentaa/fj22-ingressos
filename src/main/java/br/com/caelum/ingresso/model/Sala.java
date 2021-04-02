@@ -1,7 +1,10 @@
 package br.com.caelum.ingresso.model;
 
+<<<<<<< HEAD
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+=======
+>>>>>>> master
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -17,9 +20,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+<<<<<<< HEAD
 /**
  * Created by nando on 03/03/17.
  */
+=======
+
+>>>>>>> master
 @Entity
 public class Sala {
 
@@ -46,9 +53,16 @@ public class Sala {
 		this.preco = preco;
 	}
 
+<<<<<<< HEAD
 	public BigDecimal getPreco() {
 		return preco.setScale(2, RoundingMode.HALF_UP);
 	}
+=======
+    /**
+     * @deprecated hiberna te only
+     */
+    public Sala() {
+>>>>>>> master
 
 	public void setPreco(BigDecimal preco) {
 		this.preco = preco;
