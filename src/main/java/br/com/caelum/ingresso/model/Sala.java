@@ -1,5 +1,10 @@
 package br.com.caelum.ingresso.model;
 
+<<<<<<< HEAD
+=======
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+>>>>>>> ff1b65a... Adicionando preço e martelando banco
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -15,68 +20,95 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+<<<<<<< HEAD
 
+=======
+/**
+ * Created by nando on 03/03/17.
+ */
+>>>>>>> ff1b65a... Adicionando preço e martelando banco
 @Entity
 public class Sala {
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Integer id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 
-    private String nome;
+	private String nome;
 
-    @OneToMany(fetch = FetchType.EAGER)
-    private Set<Lugar> lugares = new HashSet<>();
+	@OneToMany(fetch = FetchType.EAGER)
+	private Set<Lugar> lugares = new HashSet<>();
 
+	private BigDecimal preco = BigDecimal.ZERO;
+
+	/**
+	 * @deprecated hibernate only
+	 */
+	public Sala() {
+
+	}
+
+	public Sala(String nome, BigDecimal preco) {
+		this.nome = nome;
+		this.preco = preco;
+	}
+
+<<<<<<< HEAD
     /**
      * @deprecated hiberna te only
      */
     public Sala() {
+=======
+	public BigDecimal getPreco() {
+		return preco.setScale(2, RoundingMode.HALF_UP);
+	}
+>>>>>>> ff1b65a... Adicionando preço e martelando banco
 
-    }
+	public void setPreco(BigDecimal preco) {
+		this.preco = preco;
 
-    public Sala(String nome) {
-        this.nome = nome;
-    }
+	}
 
-    public Integer getId() {
-        return id;
-    }
+	// getters e setters e demais métodos
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public String getNome() {
-        return nome;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public String getNome() {
+		return nome;
+	}
 
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public void add(Lugar lugar) {
-        this.lugares.add(lugar);
-    }
+	public void add(Lugar lugar) {
+		this.lugares.add(lugar);
+	}
 
-    public Set<Lugar> getLugares() {
-        return lugares;
-    }
+	public Set<Lugar> getLugares() {
+		return lugares;
+	}
 
-    public void setLugares(Set<Lugar> lugares) {
-        this.lugares = lugares;
-    }
+	public void setLugares(Set<Lugar> lugares) {
+		this.lugares = lugares;
+	}
 
-    public Map<String, List<Lugar>> getMapaDeLugares() {
-        if(!this.lugares.isEmpty()){
-            return this.lugares.stream().collect(Collectors.groupingBy(Lugar::getFileira,Collectors.toList()));
-        }
-        return Collections.emptyMap();
-    }
+	public Map<String, List<Lugar>> getMapaDeLugares() {
+		if (!this.lugares.isEmpty()) {
+			return this.lugares.stream().collect(Collectors.groupingBy(Lugar::getFileira, Collectors.toList()));
+		}
+		return Collections.emptyMap();
+	}
 
-    public Integer lugar(String fileira, Integer posicao){
-        Optional<Lugar> optional = this.lugares.stream().filter((x) -> fileira.equals(x.getFileira()) && posicao.equals(x.getPosicao())).findFirst();
-        return optional.get().getId();
-    }
+	public Integer lugar(String fileira, Integer posicao) {
+		Optional<Lugar> optional = this.lugares.stream()
+				.filter((x) -> fileira.equals(x.getFileira()) && posicao.equals(x.getPosicao())).findFirst();
+		return optional.get().getId();
+	}
 }
