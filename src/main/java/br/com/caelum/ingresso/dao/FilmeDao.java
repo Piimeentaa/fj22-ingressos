@@ -1,15 +1,15 @@
 package br.com.caelum.ingresso.dao;
 
-import br.com.caelum.ingresso.model.Filme;
-import org.springframework.stereotype.Repository;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.util.List;
 
-/**
- * Created by nando on 03/03/17.
- */
+import org.springframework.stereotype.Repository;
+
+import br.com.caelum.ingresso.model.Filme;
+
+
 @Repository
 public class FilmeDao {
 
@@ -18,7 +18,8 @@ public class FilmeDao {
 
 
     public Filme findOne(Integer id) {
-        return manager.find(Filme.class, id);
+       
+    	return manager.find(Filme.class, id);
     }
 
     public void save(Filme filme) {

@@ -11,7 +11,7 @@
 <%@ taglib tagdir="/WEB-INF/tags/" prefix="ingresso" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<ingresso:template>
+	<ingresso:template>
 	<jsp:attribute name="compra_css">
 		<link rel="stylesheet" href="/assets/css/compra.css" />
     </jsp:attribute>
@@ -38,11 +38,10 @@
 								<tr>
 								<c:forEach var="lugar" items="${map.value}">
 									<td class="fileira-assento"><figure>
-										<svg class="assento ${sessao.isDisponivel(lugar) ? 'disponivel' : 'ocupado'}"
-												onclick="${sessao.isDisponivel(lugar) ? 'changeCheckbox(this)' : '' }"
-												data-lugar="${lugar}"
-												
-												  version="1.0" id="SEAT" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+					<svg class="assento ${sessao.isDisponivel(lugar) && !carrinho.isSelecionado(lugar) ? 'disponivel' : 'ocupado' }"
+					onclick="${sessao.isDisponivel(lugar) && !carrinho.isSelecionado(lugar) ? 'changeCheckbox(this)' : '' }"
+												data-lugar="${lugar}" 
+												  id="${lugar.id}" }version="1.0" id="SEAT" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 																					
 												 viewBox="0 0 318.224 305.246" enable-background="new 0 0 318.224 305.246" xml:space="preserve">
 											<g id="FILL">
