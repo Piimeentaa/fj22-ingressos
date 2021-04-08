@@ -38,8 +38,8 @@ public class SessaoController {
 	private SessaoDao sessaoDao;
 
 	@Autowired
-
 	private OmdbClient client;
+	
 	@Autowired
 	private Carrinho carrinho;
 

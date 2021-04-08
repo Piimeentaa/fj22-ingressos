@@ -23,6 +23,7 @@ public class CompraController {
 	@Autowired
 	private Carrinho carrinho;
 
+
 	@GetMapping("/compra")
 	public ModelAndView checkout() {
 		ModelAndView modelAndView = new ModelAndView("compra/pagamento");
@@ -30,6 +31,7 @@ public class CompraController {
 		return modelAndView;
 
 	}
+
 
 	@PostMapping("/compra/ingressos")
 	public ModelAndView enviarParaPagamento(CarrinhoForm carrinhoForm) {

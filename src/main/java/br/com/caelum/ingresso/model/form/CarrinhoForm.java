@@ -11,6 +11,7 @@ import br.com.caelum.ingresso.model.Lugar;
 import br.com.caelum.ingresso.model.Sessao;
 import br.com.caelum.ingresso.model.TipoDeIngresso;
 
+
 public class CarrinhoForm {
 	private List<Ingresso> ingressos = new ArrayList<>();
 
@@ -24,6 +25,7 @@ public class CarrinhoForm {
 		}).collect(Collectors.toList());
 	}
 
+
 	public List<Ingresso> getIngressos() {
 		return ingressos;
 	}
@@ -31,4 +33,5 @@ public class CarrinhoForm {
 	public void setIngressos(List<Ingresso> ingressos) {
 		this.ingressos = ingressos;
 	}
+
 }
