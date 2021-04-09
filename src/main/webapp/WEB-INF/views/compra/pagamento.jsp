@@ -70,7 +70,8 @@
 
                 <div class="col-md-4">
                     <label for="cvv">CVV:</label>
-                    <input id="cvv" type="text" name="cvv" class="form-control">
+                    <input id="cvv" type="text" name="cvv"  value="${cartao.cvv}"
+                    class="form-control">
                 </div>
             </div>
 
